@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="icon" href="library.jpg">
+    <link rel="stylesheet" href="books-css.css">
+    <meta content="initial-scale=1, maximum-scale=1,
+    user-scalable=0" name="viewport" />
+<meta name="viewport" content="width=device-width" />
+
+<!-- Datatable plugin CSS file -->
+<link rel="stylesheet" href=
+"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+
+<!-- jQuery library file -->
+<script type="text/javascript"
+src="https://code.jquery.com/jquery-3.5.1.js">
+</script>
+
+<!-- Datatable plugin JS library file -->
+<script type="text/javascript" src=
+"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+</script>
+    <script>
+/* Initialization of datatable */
+$(document).ready(function() {
+            $('#myTable').DataTable({ 
+                "searching" : false
+            });
+        });
+
+
+  function fa() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputauthor");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  c=table.getElementsByTagName('tr').length;
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function ft() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputtitle");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  c=table.getElementsByTagName('tr').length;
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function fs() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputsubject");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  c=table.getElementsByTagName('tr').length;
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function fd() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputdate");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  c=table.getElementsByTagName('tr').length;
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[4];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+
+    </script>
+</head>
+<body>
+    <div class="my-lib">
+       <img src="images/cover-image.jpg" alt="cover-image" class="cover" width="1350" height="300">
+       <div class="top-right">LOGIN/REGISTER</div>
+    </div>
+
+    <hr>
+
+    <div class="box">
+        
+        <table>
+            <div class="my-lib">
+                <img src="images/books.jpg" alt="books" width="1260" height="300">
+            <div class="top-right">
+                
+                <th><h3>TOTAL BOOKS</h3></th>
+                <th class="books-count">15</th>
+            </div>
+            </div>
+            
+            
+        </table>
+        <h4>in MY LIBRARY</h4>     
+    </div>
+    <br>
+<div  class="filters" id="filters">
+    <h2>Search Authors</h2>
+    <input type="text" id="myInputauthor" onkeyup="fa()" class="sba author" placeholder="Search for authors..">
+    <br>
+    <h2>Search Title</h2>
+    <input type="text" id="myInputtitle" onkeyup="ft()" class="sba title" placeholder="Search for title..">
+    <br>
+    <h2>Search Subject</h2>
+    <input type="text" id="myInputsubject" onkeyup="fs()" class="sba subject" placeholder="Search for subject..">
+    <br>
+    <h2>Select Publish date</h2>
+    <input type="text" id="myInputdate" onkeyup="fd()" class="sba date" placeholder="Search for date..">
+    
+    <hr>
+    <table id="myTable" class="display">
+        <thead>
+            <tr class="header">
+                <th><label> S.No</label></th>
+                <th><label >TITLE</label></th>
+                <th><label>AUTHOR</label></th>
+                <th><label>SUBJECT</label></th>
+                <th><label>PUBLISH-YEAR</label></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td> <a href="https://indianpdf.com/five-point-someone-pdf/"> Five Point Someone</a></td>
+                <td>Chetan Bhagat</td>
+                <td>College and friends</td>
+                <td>2004</td>
+        
+            </tr>
+    
+            <tr>
+                <td>2</td>
+                <td> <a href="https://www.pdfdrive.com/one-night-the-call-center-chetan-bhagat-e1847315.html"> One Night @ the Call Center</a></td>
+                <td>Chetan Bhagat</td>
+                <td>Liberty, Individualism and Team spirit</td>
+                <td>2005</td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td> <a href="https://www.ysk-books.com/en/show/book/the-3-mistakes-of-my-life-pdf">The 3 Mistakes Of My Life</a> </td>
+                <td>Chetan Bhagat</td>
+                <td>Business, Passion</td>
+                <td>2008</td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td> <a href="https://instapdf.in/two-states-by-chetan-bhagat/"> 2 States</a></td>
+                <td>Chetan Bhagat</td>
+                <td>Marriage</td>
+                <td>2014</td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td><a href="https://www.amazon.in/Gitanjali-Tagore-R/dp/9381523185">Gitanjali </a></td>
+                <td>Rabindranath Tagore</td>
+                <td>Devotion to God</td>
+                <td>1910</td>     
+            </tr>
+        
+            
+            <tr>
+                <td>6</td>
+                <td> <a href="https://www.globalgreyebooks.com/home-and-the-world-ebook.html">The Home and the World</a> </td>
+                <td>Rabindranath Tagore</td>
+                <td>Western culture</td>
+                <td>1916</td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td> <a href="https://bengalstudent.in/gora-by-rabindranath-tagore-pdf-download.html"> Gora</a></td>
+                <td>Rabindranath Tagore</td>
+                <td>politics and religion</td>
+                <td>1910</td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+                <td> <a href="https://book.jobscaptain.com/raseedi-ticket-pdf/"> Raseedi Ticket</a></td>
+                <td>Amrita Pritam</td>
+                <td>Auto-biography</td>
+                <td>1918</td>
+            </tr>
+        
+            <tr>
+                <td>9</td>
+                <td> <a href="http://www.baytallaah.com/bookspdf/otherdimensions.pdf"> The Other Dimension</a></td>
+                <td>Amrita Pritam</td>
+                <td>Literature</td>
+                <td>1996</td>
+            </tr>
+        
+            <tr>
+                <td>10</td>
+                <td> <a href="https://pdflake.com/the-guide-pdf/"> The Guide</a></td>
+                <td>R.K.Narayan</td>
+                <td>Philosophy</td>
+                <td>1958</td>
+            </tr>
+        
+            <tr>
+                <td>11</td>
+                <td> <a href="https://gfgc.kar.nic.in/ramdurg/FileHandler/268-6b4531cf-f9cd-4670-966c-87f31772830b.pdf">The English Teacher</a> </td>
+                <td>R.K.Narayan</td>
+                <td>Auto-biography</td>
+                <td>1980</td>
+            </tr>
+        
+            <tr>
+                <td>12</td>
+                <td> <a href="https://archive.org/details/darkroom0000nara_g4f3">The Dark Room</a> </td>
+                <td>R.K.Narayan</td>
+                <td>Fiction</td>
+                <td>1938</td>
+            </tr>
+        
+            <tr>
+                <td>13</td>
+                <td> <a href="https://pdflake.com/the-blue-umbrella-pdf/">The Blue Umbrella</a> </td>
+                <td>Ruskin Bond</td>
+                <td>Fiction</td>
+                <td>1974</td>
+            </tr>
+        
+            <tr>
+                <td>14</td>
+                <td> <a href="https://www.sanskaarvalley.org/uploaded_files/homework%20sopaan/Day2/Thirld%20Week/Eng%20icse%20content.pdf"> Cherry Tree</a></td>
+                <td>Ruskin Bond</td>
+                <td>struggle, resilience, dedication, conflict, growth, responsibility and pride</td>
+                <td>1980</td>
+            </tr>
+        
+            <tr>
+                <td>15</td>
+                <td> <a href="http://www.arvindguptatoys.com/arvindgupta/ruskin-school-times.pdf"> School Times</a></td>
+                <td>Ruskin Bond</td>
+                <td>Fiction</td>
+                <td>2010</td>
+            </tr>
+        </tbody>
+    
+    </table>
+
+    <p id="'n"></p>
+</div>
+    
+</body>
+</html>
